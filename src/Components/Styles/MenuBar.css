@@ -1,0 +1,134 @@
+@font-face {
+  font-family: "SF nexa-light";
+  src: url("../Fonts/NexaLight.otf") format("woff2");
+}
+
+@font-face {
+  font-family: "SF nexa-bold";
+  src: url("../Fonts/Nexa\ Bold.otf") format("woff2");
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  padding: 10px 112px;
+  background: #e6e7e8;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 55px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+header nav {
+  float: right;
+}
+header nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 5em;
+}
+header nav ul li {
+  list-style: none;
+  position: relative;
+}
+header nav ul li .sub-menu:before {
+  content: "\f0d7";
+  position: absolute;
+  font-family: fontAwesome;
+  line-height: 50px;
+  color: #008ba6;
+  right: 5px;
+}
+header nav ul li.active .sub-menu:before {
+  content: "\f0d8";
+}
+/*dropdown-starts*/
+header nav ul li ul {
+  position: absolute;
+  left: 0;
+  background: #333;
+  display: block;
+}
+header nav ul li.active ul {
+  display: block;
+}
+header nav ul li ul li {
+  display: block;
+  width: 200px;
+}
+header nav ul li a {
+  /* color: #013f4e; */
+  color:  #008ba6;
+  text-decoration: none;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  font-family: "SF nexa-bold", Arial, sans-serif;
+}
+
+header nav ul li a:hover {
+  color:  #013f4e;
+  border-bottom: 1px solid  #013f4e;
+}
+
+.menu-toggle {
+  color: #fff;
+  float: right;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.sub-menu-items {
+  /* background-color: #013f4e; */
+  background-color: #e6e7e8;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 10px 20px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  header nav {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background: #333;
+    top: 70px;
+    left: -100%;
+    transition: 0.5s;
+  }
+  header nav.active {
+    left: 0;
+  }
+  header nav ul {
+    display: block;
+    text-align: start;
+  }
+  header nav ul li.active ul {
+    position: relative;
+    background: #003e6f;
+  }
+  header nav ul li ul li {
+    width: 100%;
+  }
+  header nav ul li ul {
+    position: relative;
+  }
+}
